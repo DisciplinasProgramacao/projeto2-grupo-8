@@ -1,3 +1,9 @@
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 /** 
  * MIT License
  *
@@ -37,8 +43,25 @@ public class Grafo {
         this.vertices = new ABB<>();
     }
 
-    public void carregar(String nomeArquivo){
+    public void carregar(String nomeArquivo) throws IOException{
+    	BufferedReader buffRead = new BufferedReader(new FileReader("src/" + nomeArquivo));
+		String linha = "";
+		while (true) {
+			if (linha != null) {
+				System.out.println(linha);
+				String[] partesGrafo = linha.split(";");
+				System.out.println(nome);
+				String subParteVertices = partesGrafo[1];
+				String subParteArestas = partesGrafo[2];
+//				
+//				new Grafo(nome);
+				
 
+			} else
+				break;
+			linha = buffRead.readLine();
+		}
+		buffRead.close();
     }
 
     public void salvar(String nomeArquivo){
