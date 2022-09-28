@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.TreeMap;
 
 public class ABB<T> {
@@ -28,5 +29,10 @@ public class ABB<T> {
     public T[] allElements(T[] array){
         T[] allData = this.data.values().toArray(array);
         return allData;
+    }
+    
+    public void allValues(){
+    	
+    	System.out.print(this.data);
     }
 }

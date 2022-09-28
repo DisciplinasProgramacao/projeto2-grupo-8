@@ -57,6 +57,15 @@ public class Vertice {
 
     }
     
+    public Aresta[] obterArestas() {
+    	return arestas.allElements(new Aresta[this.arestas.size()]);
+    }
+    
+    public int getVertice(){
+        return this.id;
+
+    }
+    
     /**
      * Retorna o grau do vértice
      * @return Grau (inteiro não negativo)

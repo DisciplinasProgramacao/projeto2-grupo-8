@@ -1,8 +1,11 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
 /** 
  * MIT License
@@ -44,28 +47,69 @@ public class Grafo {
     }
 
     public void carregar(String nomeArquivo) throws IOException{
+    	//Lendo arquivo
     	BufferedReader buffRead = new BufferedReader(new FileReader("src/" + nomeArquivo));
 		String linha = "";
-		while (true) {
-			if (linha != null) {
-				System.out.println(linha);
-				String[] partesGrafo = linha.split(";");
-				System.out.println(nome);
-				String subParteVertices = partesGrafo[1];
-				String subParteArestas = partesGrafo[2];
-//				
-//				new Grafo(nome);
-				
-
-			} else
-				break;
+		
+		int qtdVertices = 0;
+		linha = buffRead.readLine();
+		
+		//Obtendo quantidades de vertices do grafo
+		qtdVertices = Integer.parseInt(linha.split("=")[1].trim());
+		System.out.println("Qtd vertice:" + qtdVertices);
+		
+		//Obtendo os vertices do grafo
+		for(int v = 0; v < qtdVertices; v++) {
 			linha = buffRead.readLine();
+			System.out.println("Vertices:");
+			System.out.println(linha);
+			//Adicionando vertices e removendo espaço da linha
+			addVertice(Integer.parseInt(linha.trim()));
+		}
+		
+		int qtdArestas = 0;
+		linha = buffRead.readLine();
+		
+		
+		//Obtendo quantidades de vertices do grafo
+		qtdArestas = Integer.parseInt(linha.split("=")[1].trim());
+		System.out.println("Qtd arestas:" + qtdArestas);
+		//Obtendo os vertices do grafo
+		for(int a = 0; a < qtdArestas; a++) {
+			linha = buffRead.readLine();
+			System.out.println("Arestas:");
+			
+			//Separa os 2 vertices de origem e destino para adicionar uma aresta
+			int verticeOrigem = Integer.parseInt(linha.trim().split("-")[0]);
+			int verticeDestino = Integer.parseInt(linha.trim().split("-")[1]);
+			
+			System.out.println(verticeOrigem + " " + verticeDestino);
+			addAresta(verticeOrigem, verticeDestino);
 		}
 		buffRead.close();
     }
 
-    public void salvar(String nomeArquivo){
+    public void salvar(String nomeArquivo) throws FileNotFoundException, UnsupportedEncodingException{
+    	File file = new File(nomeArquivo);
+        PrintWriter writer = new PrintWriter(nomeArquivo, "UTF-8");
+        writer.println("----------------- " + this.nome + " -----------------");
+        writer.print("Vertices do Grafo: ");
+        for (Vertice vertice : this.obterVertices()) {
+            writer.print(vertice.getVertice() + " ");
+        }
+        writer.println("");
+        writer.println("Arestas do Grafo: ");
+        for(int a = 0; a < this.obterVertices().length; a++) {
+        	if(this.obterVertices()[a].obterArestas() != null) {
+        		
+        		for(Aresta ar : this.obterVertices()[a].obterArestas()) {
+        			writer.println("Do vertice " + this.obterVertices()[a].getVertice() + " para o vertice "+ ar.destino());
+        		}
+        	}
+        	
+        }
         
+        writer.close();
     }
     /**
      * Adiciona, se possível, um vértice ao grafo. O vértice é auto-nomeado com o próximo id disponível.
@@ -118,6 +162,10 @@ public class Grafo {
         
 
         return subgrafo;
+    }
+    
+    public Vertice[] obterVertices() {
+    	return vertices.allElements(new Vertice[this.ordem()]);
     }
     
     public int tamanho(){
