@@ -177,7 +177,7 @@ public class Grafo {
     }
 
     public Aresta existeAresta(int verticeA, int verticeB){
-       return null;
+    	return vertices.find(verticeA).existeAresta(verticeB);
     }
     
     /**

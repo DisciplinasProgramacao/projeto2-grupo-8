@@ -19,59 +19,64 @@ class TesteGrafo {
     }
 
 	@Test
-    void testExisteAresta() {
+    void existeAresta() {
 		Grafo grafo = new Grafo("Grafo");
 		grafo.addVertice(1);
+		grafo.addVertice(2);
+		grafo.addAresta(1, 2);
+		assertTrue(grafo.existeAresta(1, 2) != null);
+    }
+    
+	
+	@Test
+    void existeVertice() {
+		Grafo grafo = new Grafo("Grafo");
+		grafo.addVertice(1);
+		assertTrue(grafo.existeVertice(1) != null);
+    }
+	
+	@Test
+    void obterTodosVertices() {
+		Grafo grafo = new Grafo("Grafo");
 		grafo.addVertice(1);
 		grafo.addVertice(2);
-//		assertTrue(grafo.existeAresta(1, 2));
+		grafo.addVertice(3);
+		assertEquals(grafo.obterVertices().length, 3);
+    }
+
+    @Test
+    void buscaEmProfundidade() {
+
+    }
+
+    @Test
+    void caminhoEuleriano() {
+
+    }
+
+    @Test
+    void completo() {
+
+    }
+
+    @Test
+    void euleriano() {
+
     }
     
 
     @Test
-    void testBuscaEmProfundidade() {
+    void ordem() {
 
     }
 
     @Test
-    void testCaminhoEuleriano() {
+    void subGrafo() {
 
     }
 
     @Test
-    void testECompleto() {
-
-    }
-
-    @Test
-    void testEEuleriano() {
-
-    }
-
-    
-
-    @Test
-    void testExisteVertice() {
-
-    }
-
-    @Test
-    void testGetAllVertices() {
-
-    }
-
-    @Test
-    void testOrdem() {
-
-    }
-
-    @Test
-    void testSubGrafo() {
-
-    }
-
-    @Test
-    void testTamanho() {
+    void tamanho() {
 
     }
 

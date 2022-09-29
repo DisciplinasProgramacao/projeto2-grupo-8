@@ -23,9 +23,9 @@ public class App {
     	
     	
     	System.out.println("-------------------------CRIANDO GRAFO COMPLETO-------------------------");
-//    	Grafo grafoCompleto = new Grafo("GrafoCompleto");
-//    	grafoCompleto.carregar("grafoCompleto.txt");
-//    	grafoCompleto.salvar("Resultado_Grafo_Completo.txt");
+    	Grafo grafoCompleto = new GrafoCompleto("GrafoCompleto", 6);
+    	grafoCompleto.carregar("grafoCompleto.txt");
+    	grafoCompleto.salvar("Resultado_Grafo_Completo.txt");
     	System.out.println("-------------------------GRAFO CRIADO-------------------------");
     	
     	
