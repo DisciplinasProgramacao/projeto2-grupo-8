@@ -37,7 +37,14 @@ public class App {
     	
     	
     	System.out.println("-------------------------REALIZANDO BUSCA EM PROFUNDIDADE-------------------------");
-    	//grafoComum.buscaEmProfundidade();
+    	Vertice[] vertices = grafoComum.obterVertices();
+    	vertices = grafoComum.buscaProfundidade(1, vertices);
+    	grafoComum.buscaProfundidade(1, vertices);
+    	for (int i = 0; i < vertices.length; i++) {
+            if (vertices[i] != null) {
+                System.out.println(vertices[i].getVertice());
+            }
+        }
     	System.out.println("-------------------------BUSCA REALIZADA-------------------------");
     	
     	

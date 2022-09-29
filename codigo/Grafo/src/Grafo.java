@@ -141,6 +141,38 @@ public class Grafo {
 
     }
 
+    public Vertice[] buscaProfundidade(int id, Vertice[] visitados) {
+
+        Vertice[] listaDeBusca = listaDeBusca(id);
+
+        for (int j = 0; j < listaDeBusca.length; j++) {
+            if (listaDeBusca[j] != null) {
+                if (!listaDeBusca[j].visitado()) {
+                	listaDeBusca[j].visitar();
+                    visitados[j] = listaDeBusca[j];
+                    buscaProfundidade(listaDeBusca[j].getVertice(), visitados);
+                }
+            }
+        }
+
+        return visitados;
+    }
+    
+    public Vertice[] listaDeBusca(int id) {
+
+        Vertice[] verticesArray = this.obterVertices();
+
+        Vertice[] listaDeBusca = new Vertice[verticesArray.length];
+        for (int i = 0; i < verticesArray.length; i++) {
+            if (verticesArray[i].existeAresta(id) != null) {
+            	listaDeBusca[i] = verticesArray[i];
+            }
+        }
+
+        return listaDeBusca;
+    }
+    
+
     public Vertice existeVertice(int idVertice){
         return this.vertices.find(idVertice);
     }
