@@ -56,12 +56,13 @@ public class Grafo {
 		
 		//Obtendo quantidades de vertices do grafo
 		qtdVertices = Integer.parseInt(linha.split("=")[1].trim());
-		System.out.println("Qtd vertice:" + qtdVertices);
+		System.out.println("Quantidade de vertices: " + qtdVertices);
 		
 		//Obtendo os vertices do grafo
+		System.out.println("Vertices:");
 		for(int v = 0; v < qtdVertices; v++) {
 			linha = buffRead.readLine();
-			System.out.println("Vertices:");
+			
 			System.out.println(linha);
 			//Adicionando vertices e removendo espaço da linha
 			addVertice(Integer.parseInt(linha.trim()));
@@ -70,20 +71,20 @@ public class Grafo {
 		int qtdArestas = 0;
 		linha = buffRead.readLine();
 		
-		
+		System.out.println("");
 		//Obtendo quantidades de vertices do grafo
 		qtdArestas = Integer.parseInt(linha.split("=")[1].trim());
-		System.out.println("Qtd arestas:" + qtdArestas);
+		System.out.println("Quantidade arestas: " + qtdArestas);
 		//Obtendo os vertices do grafo
+		System.out.println("Arestas:");
 		for(int a = 0; a < qtdArestas; a++) {
 			linha = buffRead.readLine();
-			System.out.println("Arestas:");
 			
 			//Separa os 2 vertices de origem e destino para adicionar uma aresta
 			int verticeOrigem = Integer.parseInt(linha.trim().split("-")[0]);
 			int verticeDestino = Integer.parseInt(linha.trim().split("-")[1]);
 			
-			System.out.println(verticeOrigem + " " + verticeDestino);
+			System.out.println(verticeOrigem + " - " + verticeDestino);
 			addAresta(verticeOrigem, verticeDestino);
 		}
 		buffRead.close();
