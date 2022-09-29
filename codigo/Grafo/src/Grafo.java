@@ -139,43 +139,37 @@ public class Grafo {
         return adicionou;
 
     }
-	
-	 // The function to do DFS traversal.
-    // It uses recursive
-    // DFSUtil()
-//    void DFS(int v)
-//    {
-//        // Mark all the vertices as
-//        // not visited(set as
-//        // false by default in java)
-//        boolean visited[] = new boolean[this.obterVertices().length];
-// 
-//        // Call the recursive helper
-//        // function to print DFS
-//        // traversal
-//        DFSUtil(v, visited);
-//    }
-//
-//    void DFSUtil(int v, boolean visited[]) {
-//        // Mark the current node as visited and print it
-//        visited[v] = true;
-//        System.out.print(v + " ");
-// 
-//        // Recur for all the vertices adjacent to this
-//        // vertex
-//        Iterator<Vertice> i = null;
-//        
-//        for(Vertice vertice: this.obterVertices()) {
-//        	if(vertice.getVertice() == v) {
-//        		i = (Iterator<Vertice>) vertice;
-//        	}
-//        }
-//        while (i.hasNext()) {
-//            Vertice n = i.next();
-//            if (!visited[n.getVertice()])
-//                DFSUtil(n.getVertice(), visited);
-//        }
-//    }
+
+    public Vertice[] buscaProfundidade(int id, Vertice[] visitados) {
+
+        Vertice[] listaDeBusca = listaDeBusca(id);
+
+        for (int j = 0; j < listaDeBusca.length; j++) {
+            if (listaDeBusca[j] != null) {
+                if (!listaDeBusca[j].visitado()) {
+                	listaDeBusca[j].visitar();
+                    visitados[j] = listaDeBusca[j];
+                    buscaProfundidade(listaDeBusca[j].getVertice(), visitados);
+                }
+            }
+        }
+
+        return visitados;
+    }
+    
+    public Vertice[] listaDeBusca(int id) {
+
+        Vertice[] verticesArray = this.obterVertices();
+
+        Vertice[] listaDeBusca = new Vertice[verticesArray.length];
+        for (int i = 0; i < verticesArray.length; i++) {
+            if (verticesArray[i].existeAresta(id) != null) {
+            	listaDeBusca[i] = verticesArray[i];
+            }
+        }
+
+        return listaDeBusca;
+    }
     
 
     public Vertice existeVertice(int idVertice){
