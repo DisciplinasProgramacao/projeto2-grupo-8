@@ -2,7 +2,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TesteVertice{
+public class VerticeTest{
     @Test
     public void visitaVertice() {
         Vertice vertice = new Vertice(1);
@@ -10,6 +10,7 @@ public class TesteVertice{
         assertTrue(vertice.visitado());
     }
 
+    @Test
     public void tiraVisita() {
         Vertice vertice = new Vertice(1);
         vertice.visitar();
