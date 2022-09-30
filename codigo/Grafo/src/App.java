@@ -14,10 +14,12 @@ public class App {
     	
     	
     	
-    	System.out.println("-------------------------CRIANDO SUBGRAFO DO GRAFO COMUM-------------------------");
-    	//
-        //
-    	//
+    	System.out.println("-------------------------CRIANDO SUBGRAFO-------------------------");
+    	Grafo subgrafo = new Grafo("Subgrafo");
+    	subgrafo.carregar("subgrafo.txt");
+    	Grafo grafoSubgrafo = new Grafo("GrafoSubgrafo");
+    	grafoSubgrafo.carregar("grafoComum.txt");
+    	grafoSubgrafo.salvar("Resultado_Grafo_Subgrafo.txt");
     	System.out.println("-------------------------SUBGRAFO CRIADO-------------------------");
     	
     	
@@ -31,7 +33,12 @@ public class App {
     	
     	
     	System.out.println("-------------------------VERIFICANDO ARESTA EXISTENTE-------------------------");
-    	//grafoComum.arestaExistente(a);
+    	System.out.println("Aresta entre vertices 1 e 2");
+    	if(grafoCompleto.existeAresta(1, 2) != null) {
+    		System.out.println("Existe");
+    	}else {
+    		System.out.println("Não existe");
+    	}
     	System.out.println("-------------------------ARESTA VERIFICADA-------------------------");
     	
     	

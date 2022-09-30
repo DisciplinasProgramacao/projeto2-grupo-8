@@ -210,25 +210,25 @@ public class Grafo {
         return this.vertices.size();
     }
     
-    public String encontraCaminho() {
-    	String verticeInicial;
-    	String verticeFinal;
-    	Scanner obj = new Scanner(System.in);
-    	System.out.println("Digite o vértice inicial");
-    	verticeInicial = obj.nextLine();
-    	System.out.println("Digite o vértice final");
-    	verticeFinal = obj.nextLine();
-    	BufferedReader buffRead = new BufferedReader(new FileReader());
-		System.out.println(verticeInicial);
-		while(true) {
-			
-			
-		}
-		
-		int qtdVertices = 0;
-		linha = buffRead.readLine();
-		buffRead.close();
-    }
+//    public String encontraCaminho() {
+//    	String verticeInicial;
+//    	String verticeFinal;
+//    	Scanner obj = new Scanner(System.in);
+//    	System.out.println("Digite o vértice inicial");
+//    	verticeInicial = obj.nextLine();
+//    	System.out.println("Digite o vértice final");
+//    	verticeFinal = obj.nextLine();
+//    	BufferedReader buffRead = new BufferedReader(new FileReader());
+//		System.out.println(verticeInicial);
+//		while(true) {
+//			
+//			
+//		}
+//		
+//		int qtdVertices = 0;
+//		linha = buffRead.readLine();
+//		buffRead.close();
+//    }
     
     
     

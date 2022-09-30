@@ -1,0 +1,33 @@
+----------------- GrafoCompleto -----------------
+Vertices do Grafo: 1 2 3 4 5 6 
+Arestas do Grafo: 
+Do vertice 1 para o vertice 2
+Do vertice 1 para o vertice 3
+Do vertice 1 para o vertice 4
+Do vertice 1 para o vertice 5
+Do vertice 1 para o vertice 6
+Do vertice 2 para o vertice 1
+Do vertice 2 para o vertice 3
+Do vertice 2 para o vertice 4
+Do vertice 2 para o vertice 5
+Do vertice 2 para o vertice 6
+Do vertice 3 para o vertice 1
+Do vertice 3 para o vertice 2
+Do vertice 3 para o vertice 4
+Do vertice 3 para o vertice 5
+Do vertice 3 para o vertice 6
+Do vertice 4 para o vertice 1
+Do vertice 4 para o vertice 2
+Do vertice 4 para o vertice 3
+Do vertice 4 para o vertice 5
+Do vertice 4 para o vertice 6
+Do vertice 5 para o vertice 1
+Do vertice 5 para o vertice 2
+Do vertice 5 para o vertice 3
+Do vertice 5 para o vertice 4
+Do vertice 5 para o vertice 6
+Do vertice 6 para o vertice 1
+Do vertice 6 para o vertice 2
+Do vertice 6 para o vertice 3
+Do vertice 6 para o vertice 4
+Do vertice 6 para o vertice 5

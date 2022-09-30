@@ -14,26 +14,6 @@ public class GrafoCompleto extends Grafo {
         }
     }
 
-    public boolean addVertice(int id) {
-        Vertice novo = new Vertice(id);
-        return this.vertices.add(id, novo);
-    }
-
-    public boolean addAresta(int origem, int destino) {
-    
-        boolean adicionou = false;
-        Vertice saida = this.existeVertice(origem);
-        Vertice chegada = this.existeVertice(destino);
-    
-        if (saida != null && chegada != null) {
-            saida.addAresta(1, destino);
-            chegada.addAresta(1, origem);
-            adicionou = true;
-        }
-
-        return adicionou;
-    }
-
     @Override
     public boolean completo() {
         return true;
