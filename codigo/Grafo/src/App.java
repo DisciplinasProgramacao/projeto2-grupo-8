@@ -1,16 +1,28 @@
+import java.util.List;
+
 public class App {
     public static void main(String[] args) throws Exception {
-    	//Verificar a existencia de uma aresta
-    	//Gerar um grafo
-    	//Gerar um grafo completo
-    	//Gerar um subgrafo de um grafo
-    	//Realizar  busca em profundidade
+    	//Verificar a existencia de uma aresta - OK
+    	//Gerar um grafo não ponderado - OK
+    	//Gerar um grafo ponderado - OK
+    	//Realizar  busca em profundidade - OK
+    	//Gerar um grafo completo - OK
+    	//Gerar um subgrafo de um grafo - OK
+    	//Encontrar caminho entre dois vertices
     	//Determinar caminho Euleriano
-    	System.out.println("-------------------------CRIANDO GRAFO COMUM-------------------------");
-    	Grafo grafoComum = new Grafo("GrafoComum");
-    	grafoComum.carregar("grafoComum.txt");
-    	grafoComum.salvar("Resultado_Grafo_Comum.txt");
-    	System.out.println("-------------------------GRAFO CRIADO-------------------------");
+    	System.out.println("-------------------------CRIANDO GRAFO NÃO PONDERADO-------------------------");
+    	Grafo grafoNaoPonderado = new GrafoNaoPonderado("grafoNaoPonderado");
+    	grafoNaoPonderado.carregar("grafoNaoPonderado.txt");
+    	grafoNaoPonderado.salvar("Resultado_Grafo_Comum.txt");
+    	System.out.println("-------------------------GRAFO NÃO PONDERADO CRIADO-------------------------");
+    	
+    	
+    	
+    	System.out.println("-------------------------CRIANDO GRAFO PONDERADO-------------------------");
+    	Grafo grafoPonderado = new GrafoPonderado("grafoNaoPonderado");
+    	grafoPonderado.carregar("grafoPonderado.txt");
+    	grafoPonderado.salvar("Resultado_Grafo_Ponderado.txt");
+    	System.out.println("-------------------------GRAFO PONDERADO CRIADO-------------------------");
     	
     	
     	
@@ -18,15 +30,14 @@ public class App {
     	Grafo subgrafo = new Grafo("Subgrafo");
     	subgrafo.carregar("subgrafo.txt");
     	Grafo grafoSubgrafo = new Grafo("GrafoSubgrafo");
-    	grafoSubgrafo.carregar("grafoComum.txt");
+    	grafoSubgrafo.carregar("grafoNaoPonderado.txt");
     	grafoSubgrafo.salvar("Resultado_Grafo_Subgrafo.txt");
     	System.out.println("-------------------------SUBGRAFO CRIADO-------------------------");
     	
     	
     	
     	System.out.println("-------------------------CRIANDO GRAFO COMPLETO-------------------------");
-    	Grafo grafoCompleto = new GrafoCompleto("GrafoCompleto", 6);
-    	grafoCompleto.carregar("grafoCompleto.txt");
+    	Grafo grafoCompleto = new GrafoCompleto("GrafoCompleto", 8);
     	grafoCompleto.salvar("Resultado_Grafo_Completo.txt");
     	System.out.println("-------------------------GRAFO CRIADO-------------------------");
     	
@@ -44,20 +55,30 @@ public class App {
     	
     	
     	System.out.println("-------------------------REALIZANDO BUSCA EM PROFUNDIDADE-------------------------");
-    	Vertice[] vertices = grafoComum.obterVertices();
-    	vertices = grafoComum.buscaProfundidade(1, vertices);
-    	grafoComum.buscaProfundidade(1, vertices);
+    	Vertice[] vertices = grafoNaoPonderado.obterVertices();
+    	vertices = grafoNaoPonderado.buscaProfundidade(1, vertices);
+    	grafoNaoPonderado.buscaProfundidade(1, vertices);
     	for (int i = 0; i < vertices.length; i++) {
             if (vertices[i] != null) {
                 System.out.println(vertices[i].getVertice());
             }
         }
     	System.out.println("-------------------------BUSCA REALIZADA-------------------------");
-    	
+
+
+    	System.out.println("-------------------------REALIZANDO CAMINHO ENTRE VERTICES-------------------------");
+    	Vertice[] verticesCaminho = grafoPonderado.obterVertices();
+    	boolean caminhoExiste = grafoPonderado.caminhoEntreVertices(1, 4, verticesCaminho);
+    	if(caminhoExiste) {
+    		System.out.println("Caminho existente");
+    	}else {
+    		System.out.println("Caminho inexistente");
+    	}
+    	System.out.println("-------------------------CAMINHO ENTRE VERTICES REALIZADO-------------------------");
     	
     	
     	System.out.println("-------------------------REALIZANDO CAMINHO EULERIANO-------------------------");
-    	//grafoComum.buscaEmProfundidade();
+    	//grafoNaoPonderado.buscaEmProfundidade();
     	System.out.println("-------------------------REALIZANDO CAMINHO EULERIANO-------------------------");
     	
     	

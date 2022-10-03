@@ -1,4 +1,4 @@
------------------ GrafoComum -----------------
+----------------- grafoNaoPonderado -----------------
 Vertices do Grafo: 1 2 3 4 
 Arestas do Grafo: 
 Do vertice 1 para o vertice 3

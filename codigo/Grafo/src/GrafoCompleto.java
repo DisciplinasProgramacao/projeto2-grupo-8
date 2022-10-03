@@ -7,11 +7,19 @@ public class GrafoCompleto extends Grafo {
 
         for (int i = 1; i <= this.ordem; i++) {
             addVertice(i);
-
-            for (int j = (i + 1); j <= this.ordem; j++) {
-                addAresta(i, j);
+        }
+        
+        for(int v = 0; v < this.obterVertices().length; v++) {
+        	 Vertice v1 = this.obterVertices()[v];
+        	 for(int j = 0; j < this.obterVertices().length; j++) {
+        		 Vertice v2 = this.obterVertices()[j];
+        		 if(v1.getVertice() != v2.getVertice()) {
+        			 addAresta(v1.getVertice(), v2.getVertice());
+        		 }
+            	 
             }
         }
+       
     }
 
     @Override
