@@ -8,7 +8,7 @@ public class App {
     	//Realizar  busca em profundidade - OK
     	//Gerar um grafo completo - OK
     	//Gerar um subgrafo de um grafo - OK
-    	//Encontrar caminho entre dois vertices
+    	//Encontrar caminho entre dois vertices - OK
     	//Determinar caminho Euleriano
     	System.out.println("-------------------------CRIANDO GRAFO NÃO PONDERADO-------------------------");
     	Grafo grafoNaoPonderado = new GrafoNaoPonderado("grafoNaoPonderado");
