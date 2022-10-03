@@ -1,5 +1,7 @@
 # Código do Projeto
 
-Mantenha neste diretório todo o código fonte do projeto. 
-
-Se necessário, descreva neste arquivo aspectos relevantes da estrutura de diretórios criada para organização do código.
+#Tarefas feitas até domingo 02/10/2022
+ - Criação da classe Classe Não Ponderado;
+ - Criação da classe Ponderado;
+ - Correção do Grafo Completo;
+ - Criação do metodo para verificar um caminho entre dois vertices;
